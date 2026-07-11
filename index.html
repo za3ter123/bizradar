@@ -7,7 +7,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 <title>BizRadar — Be the first call every new business gets.</title>
-<meta name="description" content="BizRadar emails you every new Florida business the morning after it registers — company name, owner, and mailing address. Be the first call, not the fifth. Built on official state filing data. 7-day free trial." />
+<meta name="description" content="BizRadar is a free, daily-updated list of every new business registered in Florida and Colorado, with New York and more states rolling out — company name, owner, and mailing address, the morning after it files. Built on official state filing data." />
 <link rel="canonical" href="https://bizradar.us/" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="icon" href="/favicon.png" type="image/png" />
@@ -17,18 +17,18 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="BizRadar" />
 <meta property="og:title" content="BizRadar — Be the first call every new business gets." />
-<meta property="og:description" content="Every morning, get the Florida businesses that registered yesterday — name, owner, address — before your competitors know they exist." />
+<meta property="og:description" content="Free, every morning: the businesses that registered yesterday in Florida and Colorado, with New York and more states rolling out — name, owner, address — before your competitors know they exist." />
 <meta property="og:url" content="https://bizradar.us/" />
 <meta property="og:image" content="https://bizradar.us/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="BizRadar — Be the first call every new business gets." />
-<meta name="twitter:description" content="Every morning, get the Florida businesses that registered yesterday — name, owner, address — before your competitors know they exist." />
+<meta name="twitter:description" content="Free, every morning: the businesses that registered yesterday in Florida and Colorado, with New York and more states rolling out — name, owner, address — before your competitors know they exist." />
 <meta name="twitter:image" content="https://bizradar.us/og-image.png" />
 <!-- Structured data: brand entity (helps Google recognize "BizRadar" as a brand) -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"BizRadar","url":"https://bizradar.us/","logo":"https://bizradar.us/favicon.png","description":"Daily new-business lead alerts built on official Florida state registration filings.","sameAs":["https://x.com/BizRadarUS"]}
+{"@context":"https://schema.org","@type":"Organization","name":"BizRadar","url":"https://bizradar.us/","logo":"https://bizradar.us/favicon.png","description":"Free daily new-business lead alerts built on official state registration filings — Florida and Colorado, with New York and more states rolling out.","sameAs":["https://x.com/BizRadarUS"]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"BizRadar","url":"https://bizradar.us/"}
@@ -211,48 +211,16 @@
     max-width: 50ch;
     color: var(--body);
   }
-  .capture {
-    display: flex;
-    gap: 10px;
+  .hero-cta {
     margin-top: 32px;
-    max-width: 480px;
-  }
-  .capture-field {
-    position: relative;
-    flex: 1;
-    min-width: 0;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
-  .capture .capture-field input {
-    flex: 1;
-    /* leave room for the info icon parked inside the field. Higher specificity
-       than `.capture input` below so its padding shorthand can't reset this. */
-    padding-right: 42px;
-  }
-  /* park the email tooltip inside the input, vertically centered */
-  .capture-field .tip {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-  }
-  .capture input {
-    flex: 1;
-    min-width: 0;
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 10px;
-    color: var(--heading);
-    font-family: "Inter", sans-serif;
-    font-size: 15px;
-    padding: 13px 16px;
-    transition: border-color 0.16s ease, box-shadow 0.16s ease;
-  }
-  .capture input::placeholder { color: var(--muted); }
-  .capture input:focus {
-    outline: none;
-    border-color: rgba(34, 224, 138, 0.5);
-    box-shadow: 0 0 0 3px rgba(34, 224, 138, 0.14);
+  .cta-note {
+    font-size: 14px;
+    color: var(--muted);
   }
   .trust {
     margin-top: 16px;
@@ -263,300 +231,6 @@
     gap: 8px;
   }
   .trust svg { flex: none; color: var(--accent); }
-
-  /* ---------- signup: turf step ---------- */
-  .turf {
-    margin-top: 24px;
-    max-width: 480px;
-    animation: turf-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-  @keyframes turf-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce) { .turf { animation: none; } }
-  .turf-label {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 14.5px;
-    font-weight: 500;
-    color: var(--heading);
-    margin: 0 0 12px;
-    letter-spacing: -0.01em;
-  }
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: "Inter", sans-serif;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--body);
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 100px;
-    padding: 7px 14px;
-    cursor: pointer;
-    transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
-  }
-  .chip:hover { border-color: rgba(255, 255, 255, 0.22); color: var(--heading); }
-  .chip:focus-visible {
-    outline: none;
-    border-color: rgba(34, 224, 138, 0.5);
-    box-shadow: 0 0 0 3px rgba(34, 224, 138, 0.14);
-  }
-  .chip[aria-pressed="true"] {
-    color: #06231A;
-    background: var(--accent);
-    border-color: var(--accent);
-  }
-  .chip .tick { width: 13px; height: 13px; display: none; }
-  .chip[aria-pressed="true"] .tick { display: block; }
-  .turf-note {
-    margin: 12px 0 0;
-    font-size: 12.5px;
-    color: var(--muted);
-  }
-  .turf-actions {
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .turf-msg {
-    font-size: 13.5px;
-    color: #FF8A8A;
-  }
-
-  /* The hidden attribute must win over the flex/block display rules below,
-     otherwise the turf + success states would show on first paint. */
-  .turf[hidden], .signup-done[hidden] { display: none; }
-
-  /* ---------- signup: success ---------- */
-  .signup-done {
-    margin-top: 24px;
-    max-width: 480px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: rgba(34, 224, 138, 0.08);
-    border: 1px solid rgba(34, 224, 138, 0.28);
-    border-radius: 12px;
-    padding: 16px 18px;
-    animation: turf-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-  .signup-done .done-mark {
-    flex: none;
-    width: 38px; height: 38px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #06231A;
-  }
-  .signup-done .done-title {
-    display: block;
-    font-family: "Space Grotesk", sans-serif;
-    color: var(--heading);
-    font-size: 15.5px;
-    font-weight: 500;
-  }
-  .signup-done .done-sub {
-    display: block;
-    color: var(--body);
-    font-size: 14px;
-    margin-top: 2px;
-  }
-
-  /* visually-hidden honeypot field */
-  #company-website {
-    position: absolute;
-    left: -9999px;
-    width: 1px; height: 1px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* ---------- button loading state ---------- */
-  /* Applied (via JS) the moment a CTA hands off to the hosted checkout, so it's
-     obvious the redirect is happening. Disabled + spinner + "Starting…" label. */
-  .btn.is-loading {
-    pointer-events: none;
-    opacity: 0.85;
-    cursor: progress;
-  }
-  .btn.is-loading:hover { transform: none; box-shadow: 0 0 0 0 var(--accent-glow); }
-  .btn .spinner {
-    width: 15px; height: 15px;
-    flex: none;
-    border: 2px solid currentColor;
-    border-top-color: transparent;
-    border-radius: 50%;
-    display: none;
-    animation: btn-spin 0.6s linear infinite;
-  }
-  .btn.is-loading .spinner { display: inline-block; }
-  @keyframes btn-spin { to { transform: rotate(360deg); } }
-  @media (prefers-reduced-motion: reduce) {
-    .btn .spinner { animation-duration: 1.4s; }
-  }
-
-  /* ---------- checkout return states (success / cancel) ---------- */
-  /* Shown full-bleed under the hero when the user comes back from checkout.
-     Hidden by default; JS unhides the right one from the ?subscribed= param. */
-  .return-state[hidden] { display: none; }
-  .return-state {
-    margin: 28px 0 0;
-    max-width: 560px;
-    border-radius: var(--radius);
-    padding: 26px 26px;
-    animation: turf-in 0.36s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-  @media (prefers-reduced-motion: reduce) { .return-state { animation: none; } }
-  .return-state .rs-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .return-state .rs-mark {
-    flex: none;
-    width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 12px;
-  }
-  .return-state h2 {
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  .return-state p {
-    margin: 8px 0 0;
-    font-size: 15px;
-    color: var(--body);
-    max-width: 42ch;
-  }
-  .return-state .rs-actions {
-    margin-top: 18px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  /* success variant */
-  .return-state.is-success {
-    background:
-      radial-gradient(130% 130% at 0% 0%, rgba(34, 224, 138, 0.10), transparent 60%),
-      var(--surface);
-    border: 1px solid rgba(34, 224, 138, 0.30);
-    box-shadow: 0 30px 70px -45px rgba(34, 224, 138, 0.45);
-  }
-  .return-state.is-success .rs-mark {
-    background: var(--accent);
-    color: #06231A;
-  }
-  /* cancel / error variant — friendly, not alarming (amber, not red) */
-  .return-state.is-cancel {
-    background: var(--surface);
-    border: 1px solid rgba(255, 196, 120, 0.30);
-  }
-  .return-state.is-cancel .rs-mark {
-    background: rgba(255, 196, 120, 0.12);
-    border: 1px solid rgba(255, 196, 120, 0.32);
-    color: #FFC478;
-  }
-
-  /* ---------- tooltips ---------- */
-  /* Lightweight, accessible info bubble. The trigger is a real <button> so it's
-     keyboard- and touch-reachable; the bubble is toggled by JS (.is-open) and
-     also shows on hover/focus-within for pointer users. */
-  .tip {
-    position: relative;
-    display: inline-flex;
-    vertical-align: middle;
-  }
-  .tip-btn {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 17px; height: 17px;
-    flex: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border-radius: 50%;
-    border: 1px solid var(--hairline);
-    background: rgba(255, 255, 255, 0.04);
-    color: var(--muted);
-    font-family: "Inter", sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 1;
-    cursor: help;
-    transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
-  }
-  .tip-btn:hover { color: var(--heading); border-color: rgba(255, 255, 255, 0.24); }
-  .tip-btn:focus-visible {
-    outline: none;
-    color: var(--heading);
-    border-color: rgba(34, 224, 138, 0.6);
-    box-shadow: 0 0 0 3px rgba(34, 224, 138, 0.16);
-  }
-  .tip-bubble {
-    position: absolute;
-    bottom: calc(100% + 9px);
-    left: 50%;
-    transform: translateX(-50%) translateY(4px);
-    width: max-content;
-    max-width: 240px;
-    background: #0E2436;
-    color: var(--body);
-    border: 1px solid var(--hairline);
-    border-radius: 10px;
-    padding: 10px 12px;
-    font-family: "Inter", sans-serif;
-    font-size: 12.5px;
-    font-weight: 400;
-    line-height: 1.45;
-    text-align: left;
-    letter-spacing: 0;
-    box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    z-index: 60;
-    transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
-  }
-  /* little pointer */
-  .tip-bubble::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 6px solid transparent;
-    border-top-color: #0E2436;
-  }
-  /* shown on pointer hover/focus, OR when JS opens it (touch/click/keyboard) */
-  .tip:hover .tip-bubble,
-  .tip:focus-within .tip-bubble,
-  .tip-bubble.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .tip-bubble { transition: opacity 0.16s ease, visibility 0.16s; }
-  }
-  /* keep the bubble on-screen when the trigger sits near the right edge
-     (price/what's-included tooltip). */
-  .tip.tip-end .tip-bubble { left: auto; right: -6px; transform: translateY(4px); }
-  .tip.tip-end .tip-bubble::after { left: auto; right: 12px; transform: none; }
-  .tip.tip-end:hover .tip-bubble,
-  .tip.tip-end:focus-within .tip-bubble,
-  .tip.tip-end .tip-bubble.is-open { transform: translateY(0); }
 
   /* ---------- radar scope ---------- */
   .scope-wrap {
@@ -816,55 +490,6 @@
     text-align: center;
   }
 
-  /* ---------- pricing ---------- */
-  .pricing { text-align: center; }
-  .price-card {
-    max-width: 560px;
-    margin: 0 auto;
-    background: var(--surface);
-    border: 1px solid rgba(34, 224, 138, 0.22);
-    border-radius: 20px;
-    padding: 48px 40px;
-    box-shadow: 0 40px 90px -50px rgba(34, 224, 138, 0.4);
-  }
-  .price-card .amount {
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 700;
-    color: var(--heading);
-    font-size: 56px;
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-  /* Only the inline "/mo" suffix — scoped so it doesn't restyle the tooltip
-     trigger/bubble that also live inside .amount. */
-  .price-card .amount > span:not(.tip):not(.tip-bubble) {
-    font-size: 18px;
-    color: var(--muted);
-    font-weight: 500;
-  }
-  .price-card .lead-line {
-    margin: 18px 0 0;
-    font-size: 17px;
-    color: var(--body);
-  }
-  .price-meta {
-    margin-top: 18px;
-    display: flex;
-    justify-content: center;
-    gap: 20px 26px;
-    flex-wrap: wrap;
-    font-size: 14px;
-    color: var(--muted);
-  }
-  .price-meta .pm { display: flex; align-items: center; gap: 7px; }
-  .price-meta svg { color: var(--accent); flex: none; }
-  .price-card .btn { margin-top: 30px; }
-  .price-card .pay-note {
-    margin-top: 14px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
   /* ---------- final CTA band ---------- */
   .cta-band { padding: 40px 0 100px; }
   .cta-inner {
@@ -955,10 +580,8 @@
     .wrap { padding: 0 20px; }
     .hero { padding: 48px 0 64px; }
     section.block { padding: 64px 0; }
-    .capture { flex-direction: column; }
-    .capture .btn { width: 100%; }
+    .hero-cta .btn { width: 100%; }
     .cta-inner { padding: 44px 26px; }
-    .price-card { padding: 36px 24px; }
     .foot-inner { flex-direction: column; align-items: flex-start; }
     .lc-table .agent-col { display: none; }
     /* Tighten table padding on phones so the 3 remaining columns fit without
@@ -967,10 +590,6 @@
     .lc-table th:first-child, .lc-table td:first-child { padding-left: 18px; }
     .lc-table th:last-child, .lc-table td:last-child { padding-right: 18px; }
     .lc-table .filed { font-size: 12px; }
-    /* On phones the chip-row tooltip can overflow the viewport; cap its width
-       and let it grow downward from the trigger instead. */
-    .tip-bubble { max-width: min(240px, 78vw); }
-    .return-state .rs-actions .btn { width: 100%; }
   }
 </style>
 </head>
@@ -994,9 +613,8 @@
       <a href="#how">How it works</a>
       <a href="#report">Approach Report</a>
       <a href="#preview">Sample list</a>
-      <a href="#pricing">Pricing</a>
     </nav>
-    <a class="btn btn-primary nav-cta" href="#hero">Start free trial</a>
+    <a class="btn btn-primary nav-cta" href="leads.html">See today's leads</a>
     <button class="menu-btn" aria-label="Open menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
@@ -1008,85 +626,11 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1>Be the first call every new business gets.</h1>
-      <p class="subhead">Every morning, get a list of the businesses that registered in your area yesterday — name, address, and owner — before your competitors even know they exist.</p>
+      <p class="subhead">Every morning, see the businesses that registered in your area yesterday — name, address, and owner — before your competitors even know they exist. Free for everyone, no account needed.</p>
 
-      <!-- signup: email step -> turf step -> success. Wired in the script below. -->
-      <div class="signup" id="signup">
-        <form class="capture" id="email-form" novalidate>
-          <span class="capture-field">
-            <input type="email" id="email-input" name="email" inputmode="email" autocomplete="email" placeholder="you@agency.com" aria-label="Your work email" aria-describedby="tip-email" required />
-            <span class="tip" data-tip>
-              <button type="button" class="tip-btn" aria-label="Why we ask for your email" aria-describedby="tip-email" aria-expanded="false">i</button>
-              <span class="tip-bubble" id="tip-email" role="tooltip">We use this to send your daily list and set up your account. No spam — unsubscribe in one click.</span>
-            </span>
-          </span>
-          <!-- honeypot: hidden from humans, catches bots that fill every field -->
-          <input type="text" id="company-website" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <button class="btn btn-primary" type="submit">Get started</button>
-        </form>
-
-        <!-- turf step (revealed after a valid email) -->
-        <div class="turf" id="turf-step" hidden>
-          <p class="turf-label">
-            Pick your turf — where do you sell?
-            <span class="tip" data-tip>
-              <button type="button" class="tip-btn" aria-label="What picking counties does" aria-describedby="tip-turf" aria-expanded="false">i</button>
-              <span class="tip-bubble" id="tip-turf" role="tooltip">You'll only get new businesses from the counties you pick here — nothing from anywhere else. Add or change counties anytime.</span>
-            </span>
-          </p>
-          <div class="chips" id="county-chips" role="group" aria-label="Select your counties"></div>
-          <p class="turf-note">More counties available at full signup.</p>
-          <div class="turf-actions">
-            <button class="btn btn-primary" type="button" id="confirm-turf">
-              <span class="spinner" aria-hidden="true"></span>
-              <span class="btn-label">Start my 7-day free trial</span>
-            </button>
-            <span class="turf-msg" id="turf-msg" role="alert"></span>
-          </div>
-        </div>
-
-        <!-- success state -->
-        <div class="signup-done" id="signup-done" hidden>
-          <span class="done-mark">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          </span>
-          <div>
-            <strong class="done-title">You're in.</strong>
-            <span class="done-sub">Your first morning list arrives 7 AM tomorrow.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- checkout return: success (?subscribed=true). Unhidden by app.js. -->
-      <div class="return-state is-success" id="return-success" role="status" hidden>
-        <div class="rs-row">
-          <span class="rs-mark" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          </span>
-          <div>
-            <h2>You're in — welcome aboard.</h2>
-            <p>Your first list lands tomorrow morning at 7 AM. Check your inbox now for a confirmation from BizRadar.</p>
-            <div class="rs-actions">
-              <a class="btn btn-ghost" href="#how">See how it works</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- checkout return: cancelled / failed. Friendly retry, unhidden by app.js. -->
-      <div class="return-state is-cancel" id="return-cancel" role="status" hidden>
-        <div class="rs-row">
-          <span class="rs-mark" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg>
-          </span>
-          <div>
-            <h2>No worries — nothing was charged.</h2>
-            <p>Looks like checkout didn't finish. Your 7-day free trial is still here whenever you're ready.</p>
-            <div class="rs-actions">
-              <button class="btn btn-primary" type="button" id="retry-signup">Pick up where I left off</button>
-            </div>
-          </div>
-        </div>
+      <div class="hero-cta" id="hero-cta">
+        <a class="btn btn-primary btn-lg" href="leads.html">See today's leads</a>
+        <p class="cta-note">A free mobile app is coming soon.</p>
       </div>
 
       <p class="trust" id="trust-line">
@@ -1230,18 +774,18 @@
     <div class="steps">
       <article class="step">
         <div class="num">1</div>
-        <h3>Tell us your turf</h3>
-        <p>Pick your counties and the business types you want.</p>
+        <h3>New businesses file with the state</h3>
+        <p>Owners register LLCs and corporations every business day.</p>
       </article>
       <article class="step">
         <div class="num">2</div>
         <h3>We watch the filings</h3>
-        <p>Every business day we pull the official new-registration feed and match it to your turf.</p>
+        <p>Every business day we pull the official new-registration feed for Florida and Colorado, with New York and more states rolling out.</p>
       </article>
       <article class="step">
         <div class="num">3</div>
-        <h3>You get the morning list</h3>
-        <p>A clean email lands at 7am with yesterday's new businesses. Start dialing.</p>
+        <h3>You browse — free, no signup</h3>
+        <p>The list updates every morning on the leads page. No account, no cost. Start dialing.</p>
       </article>
     </div>
   </div>
@@ -1296,14 +840,14 @@
   <div class="wrap preview-grid">
     <div class="preview-copy">
       <p class="kicker">Today's list</p>
-      <h2>This is what lands in your inbox.</h2>
-      <p>Yesterday's brand-new Florida businesses — matched to your turf, formatted to act on. Business name, owner, address, and filing date, ready to dial from.</p>
+      <h2>This is what's live on the page right now.</h2>
+      <p>Yesterday's brand-new businesses across Florida and Colorado, with New York and more states rolling out — business name, owner, address, and filing date, ready to dial from. Free, updated every morning.</p>
     </div>
 
     <div class="leadcard">
       <div class="lc-head">
-        <span class="title"><span class="live"></span>Today's list — Florida</span>
-        <span class="stamp">Delivered 7:00 AM</span>
+        <span class="title"><span class="live"></span>Today's list — FL &amp; CO</span>
+        <span class="stamp">Updated 7:00 AM</span>
       </div>
       <table class="lc-table">
         <thead>
@@ -1341,41 +885,7 @@
           </tr>
         </tbody>
       </table>
-      <div class="lc-foot">4 new businesses matched your turf this morning</div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PRICING TEASER ================= -->
-<section class="block pricing" id="pricing">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">Pricing</p>
-      <h2>One closed deal pays for the year.</h2>
-    </div>
-    <div class="price-card">
-      <div class="amount">$49<span>/mo</span>
-        <span class="tip tip-end" data-tip>
-          <button type="button" class="tip-btn" aria-label="What's included for $49 a month" aria-describedby="tip-price" aria-expanded="false">i</button>
-          <span class="tip-bubble" id="tip-price" role="tooltip">$49/mo after a free 7-day trial. Includes the daily morning list for your counties, owner and address details, and the pre-call Approach Report. No setup fee. Cancel anytime.</span>
-        </span>
-      </div>
-      <p class="lead-line">From <strong style="color:var(--heading);font-weight:600;">$49/mo</strong>. Less than an hour of billable time.</p>
-      <div class="price-meta">
-        <span class="pm">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          7-day free trial
-        </span>
-        <span class="pm">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Cancel anytime
-        </span>
-      </div>
-      <a class="btn btn-primary btn-lg" id="pricing-cta" data-checkout href="https://buy.polar.sh/polar_cl_L0W22LYNfGHGdxMthtKYB9ckAYuB7YtCbNANX4Mmqik">
-        <span class="spinner" aria-hidden="true"></span>
-        <span class="btn-label">Start your 7-day free trial</span>
-      </a>
-      <p class="pay-note">No charge today. Secure checkout by Polar. Cancel anytime in one click.</p>
+      <div class="lc-foot">4 new businesses added this morning</div>
     </div>
   </div>
 </section>
@@ -1391,7 +901,7 @@
         <circle cx="148" cy="56" r="5" fill="#22E08A" fill-opacity="0.7"/>
       </svg>
       <h2>Every new business in your market, the morning after they file.</h2>
-      <a class="btn btn-primary btn-lg" href="#hero">Start your 7-day free trial</a>
+      <a class="btn btn-primary btn-lg" href="leads.html">See today's leads</a>
     </div>
   </div>
 </section>
