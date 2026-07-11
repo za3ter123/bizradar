@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-nQ5ZPOAkNH1zC4bzhwRZBo/mgIoEpBl7+9umn5gC2XE='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<title>BizRadar — Be the first call every new business gets.</title>
+<meta name="description" content="BizRadar emails you every new Florida business the morning after it registers — company name, owner, and mailing address. Be the first call, not the fifth. Built on official state filing data. 7-day free trial." />
+<link rel="canonical" href="https://bizradar.us/" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<link rel="icon" href="/favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+<meta name="theme-color" content="#0B1B2B" />
+<!-- Open Graph / social cards -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BizRadar" />
+<meta property="og:title" content="BizRadar — Be the first call every new business gets." />
+<meta property="og:description" content="Every morning, get the Florida businesses that registered yesterday — name, owner, address — before your competitors know they exist." />
+<meta property="og:url" content="https://bizradar.us/" />
+<meta property="og:image" content="https://bizradar.us/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BizRadar — Be the first call every new business gets." />
+<meta name="twitter:description" content="Every morning, get the Florida businesses that registered yesterday — name, owner, address — before your competitors know they exist." />
+<meta name="twitter:image" content="https://bizradar.us/og-image.png" />
+<!-- Structured data: brand entity (helps Google recognize "BizRadar" as a brand) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"BizRadar","url":"https://bizradar.us/","logo":"https://bizradar.us/favicon.png","description":"Daily new-business lead alerts built on official Florida state registration filings.","sameAs":["https://x.com/BizRadarUS"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"BizRadar","url":"https://bizradar.us/"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0B1B2B;
+    --surface: #122E45;
+    --accent: #22E08A;
+    --heading: #E6EDF3;
+    --body: #AEBDC9;
+    --muted: #8A9BA8;
+    --hairline: rgba(255, 255, 255, 0.08);
+    --accent-glow: rgba(34, 224, 138, 0.35);
+    --radius: 16px;
+    --maxw: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--body);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    color: var(--heading);
+    margin: 0;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #06231A;
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 28px -6px var(--accent-glow);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--heading);
+    border: 1px solid var(--hairline);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .btn-lg { padding: 15px 26px; font-size: 16px; }
+
+  /* ---------- header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
+    border-bottom: 1px solid transparent;
+  }
+  header.scrolled {
+    background: rgba(11, 27, 43, 0.78);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+  }
+  .brand .mark { display: block; }
+  .brand .wordmark {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+  }
+  .nav-links a {
+    color: var(--body);
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: color 0.16s ease;
+  }
+  .nav-links a:hover { color: var(--heading); }
+  .nav-cta { margin-left: 8px; }
+
+  .menu-btn { display: none; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding: 76px 0 96px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 56px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(34, 224, 138, 0.08);
+    border: 1px solid rgba(34, 224, 138, 0.22);
+    border-radius: 100px;
+    padding: 6px 14px;
+    letter-spacing: 0.01em;
+  }
+  .pill .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px 1px var(--accent-glow);
+  }
+  .hero h1 {
+    font-size: clamp(34px, 4.6vw, 56px);
+    font-weight: 700;
+    margin: 22px 0 0;
+    max-width: 16ch;
+  }
+  .hero .subhead {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 22px 0 0;
+    max-width: 50ch;
+    color: var(--body);
+  }
+  .capture {
+    display: flex;
+    gap: 10px;
+    margin-top: 32px;
+    max-width: 480px;
+  }
+  .capture-field {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+  }
+  .capture .capture-field input {
+    flex: 1;
+    /* leave room for the info icon parked inside the field. Higher specificity
+       than `.capture input` below so its padding shorthand can't reset this. */
+    padding-right: 42px;
+  }
+  /* park the email tooltip inside the input, vertically centered */
+  .capture-field .tip {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+  }
+  .capture input {
+    flex: 1;
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    color: var(--heading);
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    padding: 13px 16px;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease;
+  }
+  .capture input::placeholder { color: var(--muted); }
+  .capture input:focus {
+    outline: none;
+    border-color: rgba(34, 224, 138, 0.5);
+    box-shadow: 0 0 0 3px rgba(34, 224, 138, 0.14);
+  }
+  .trust {
+    margin-top: 16px;
+    font-size: 13.5px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trust svg { flex: none; color: var(--accent); }
+
+  /* ---------- signup: turf step ---------- */
+  .turf {
+    margin-top: 24px;
+    max-width: 480px;
+    animation: turf-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes turf-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .turf { animation: none; } }
+  .turf-label {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--heading);
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--body);
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
+  }
+  .chip:hover { border-color: rgba(255, 255, 255, 0.22); color: var(--heading); }
+  .chip:focus-visible {
+    outline: none;
+    border-color: rgba(34, 224, 138, 0.5);
+    box-shadow: 0 0 0 3px rgba(34, 224, 138, 0.14);
+  }
+  .chip[aria-pressed="true"] {
+    color: #06231A;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .chip .tick { width: 13px; height: 13px; display: none; }
+  .chip[aria-pressed="true"] .tick { display: block; }
+  .turf-note {
+    margin: 12px 0 0;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .turf-actions {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .turf-msg {
+    font-size: 13.5px;
+    color: #FF8A8A;
+  }
+
+  /* The hidden attribute must win over the flex/block display rules below,
+     otherwise the turf + success states would show on first paint. */
+  .turf[hidden], .signup-done[hidden] { display: none; }
+
+  /* ---------- signup: success ---------- */
+  .signup-done {
+    margin-top: 24px;
+    max-width: 480px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(34, 224, 138, 0.08);
+    border: 1px solid rgba(34, 224, 138, 0.28);
+    border-radius: 12px;
+    padding: 16px 18px;
+    animation: turf-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .signup-done .done-mark {
+    flex: none;
+    width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #06231A;
+  }
+  .signup-done .done-title {
+    display: block;
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--heading);
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+  .signup-done .done-sub {
+    display: block;
+    color: var(--body);
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* visually-hidden honeypot field */
+  #company-website {
+    position: absolute;
+    left: -9999px;
+    width: 1px; height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* ---------- button loading state ---------- */
+  /* Applied (via JS) the moment a CTA hands off to the hosted checkout, so it's
+     obvious the redirect is happening. Disabled + spinner + "Starting…" label. */
+  .btn.is-loading {
+    pointer-events: none;
+    opacity: 0.85;
+    cursor: progress;
+  }
+  .btn.is-loading:hover { transform: none; box-shadow: 0 0 0 0 var(--accent-glow); }
+  .btn .spinner {
+    width: 15px; height: 15px;
+    flex: none;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: none;
+    animation: btn-spin 0.6s linear infinite;
+  }
+  .btn.is-loading .spinner { display: inline-block; }
+  @keyframes btn-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .btn .spinner { animation-duration: 1.4s; }
+  }
+
+  /* ---------- checkout return states (success / cancel) ---------- */
+  /* Shown full-bleed under the hero when the user comes back from checkout.
+     Hidden by default; JS unhides the right one from the ?subscribed= param. */
+  .return-state[hidden] { display: none; }
+  .return-state {
+    margin: 28px 0 0;
+    max-width: 560px;
+    border-radius: var(--radius);
+    padding: 26px 26px;
+    animation: turf-in 0.36s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @media (prefers-reduced-motion: reduce) { .return-state { animation: none; } }
+  .return-state .rs-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .return-state .rs-mark {
+    flex: none;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 12px;
+  }
+  .return-state h2 {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .return-state p {
+    margin: 8px 0 0;
+    font-size: 15px;
+    color: var(--body);
+    max-width: 42ch;
+  }
+  .return-state .rs-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  /* success variant */
+  .return-state.is-success {
+    background:
+      radial-gradient(130% 130% at 0% 0%, rgba(34, 224, 138, 0.10), transparent 60%),
+      var(--surface);
+    border: 1px solid rgba(34, 224, 138, 0.30);
+    box-shadow: 0 30px 70px -45px rgba(34, 224, 138, 0.45);
+  }
+  .return-state.is-success .rs-mark {
+    background: var(--accent);
+    color: #06231A;
+  }
+  /* cancel / error variant — friendly, not alarming (amber, not red) */
+  .return-state.is-cancel {
+    background: var(--surface);
+    border: 1px solid rgba(255, 196, 120, 0.30);
+  }
+  .return-state.is-cancel .rs-mark {
+    background: rgba(255, 196, 120, 0.12);
+    border: 1px solid rgba(255, 196, 120, 0.32);
+    color: #FFC478;
+  }
+
+  /* ---------- tooltips ---------- */
+  /* Lightweight, accessible info bubble. The trigger is a real <button> so it's
+     keyboard- and touch-reachable; the bubble is toggled by JS (.is-open) and
+     also shows on hover/focus-within for pointer users. */
+  .tip {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+  .tip-btn {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 17px; height: 17px;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--hairline);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: help;
+    transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+  }
+  .tip-btn:hover { color: var(--heading); border-color: rgba(255, 255, 255, 0.24); }
+  .tip-btn:focus-visible {
+    outline: none;
+    color: var(--heading);
+    border-color: rgba(34, 224, 138, 0.6);
+    box-shadow: 0 0 0 3px rgba(34, 224, 138, 0.16);
+  }
+  .tip-bubble {
+    position: absolute;
+    bottom: calc(100% + 9px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    width: max-content;
+    max-width: 240px;
+    background: #0E2436;
+    color: var(--body);
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-family: "Inter", sans-serif;
+    font-size: 12.5px;
+    font-weight: 400;
+    line-height: 1.45;
+    text-align: left;
+    letter-spacing: 0;
+    box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 60;
+    transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+  }
+  /* little pointer */
+  .tip-bubble::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #0E2436;
+  }
+  /* shown on pointer hover/focus, OR when JS opens it (touch/click/keyboard) */
+  .tip:hover .tip-bubble,
+  .tip:focus-within .tip-bubble,
+  .tip-bubble.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tip-bubble { transition: opacity 0.16s ease, visibility 0.16s; }
+  }
+  /* keep the bubble on-screen when the trigger sits near the right edge
+     (price/what's-included tooltip). */
+  .tip.tip-end .tip-bubble { left: auto; right: -6px; transform: translateY(4px); }
+  .tip.tip-end .tip-bubble::after { left: auto; right: 12px; transform: none; }
+  .tip.tip-end:hover .tip-bubble,
+  .tip.tip-end:focus-within .tip-bubble,
+  .tip.tip-end .tip-bubble.is-open { transform: translateY(0); }
+
+  /* ---------- radar scope ---------- */
+  .scope-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .scope {
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.45));
+  }
+  @keyframes sweep { to { transform: rotate(360deg); } }
+  /* transform-box: view-box makes the rotation center (250,250) resolve correctly
+     in Safari/iOS, which otherwise ignores px transform-origin on SVG groups. */
+  .scope .sweep-group { transform-box: view-box; transform-origin: 250px 250px; animation: sweep 5s linear infinite; }
+  /* Blip stays dark until the sweep's line crosses it (~14% into the 5s cycle),
+     then flashes and fades out like a real radar return. Same 5s period as the
+     sweep, so they start together and stay in sync. */
+  @keyframes blip-detect {
+    0%, 9% { opacity: 0; }
+    14% { opacity: 1; }
+    40% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  .scope .blip { opacity: 0; animation: blip-detect 5s linear infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    /* Even with reduced motion, keep a slow, calm radar sweep so the scope
+       never looks frozen/broken — just gentler (12s instead of 5s). */
+    .scope .sweep-group { animation-duration: 12s; }
+    .scope .blip { animation-duration: 12s; }
+  }
+
+  /* ---------- who it's for strip ---------- */
+  .strip {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 30px 0;
+  }
+  .strip-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .strip-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 14px 28px;
+  }
+  .strip-row .item {
+    color: var(--body);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    opacity: 0.85;
+    transition: opacity 0.16s ease, color 0.16s ease;
+  }
+  .strip-row .item:hover { opacity: 1; color: var(--heading); }
+  .strip-row .sep { color: rgba(255, 255, 255, 0.16); font-size: 13px; }
+
+  /* ---------- sections ---------- */
+  section.block { padding: 96px 0; }
+  .section-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+  .section-head .kicker {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .section-head h2 {
+    font-size: clamp(28px, 3.4vw, 38px);
+    font-weight: 700;
+  }
+  .section-head p { margin: 16px 0 0; font-size: 17px; }
+
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- value cards ---------- */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(34, 224, 138, 0.28);
+    box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+  }
+  .card .icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 11px;
+    background: rgba(34, 224, 138, 0.1);
+    border: 1px solid rgba(34, 224, 138, 0.2);
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .card h3 { font-size: 19px; font-weight: 500; }
+  .card p { margin: 12px 0 0; font-size: 15px; color: var(--body); }
+
+  /* ---------- how it works ---------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    position: relative;
+  }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    position: relative;
+  }
+  .step .num {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent);
+    border: 1px solid rgba(34, 224, 138, 0.3);
+    background: rgba(34, 224, 138, 0.07);
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .step h3 { font-size: 18px; font-weight: 500; }
+  .step p { margin: 10px 0 0; font-size: 15px; }
+
+  /* ---------- approach report ---------- */
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .report-grid .card.pitch {
+    border-color: rgba(34, 224, 138, 0.28);
+    background:
+      radial-gradient(130% 130% at 0% 0%, rgba(34, 224, 138, 0.08), transparent 60%),
+      var(--surface);
+  }
+  .report-grid .card.pitch h3 { color: var(--accent); }
+  .report-actions { margin-top: 40px; text-align: center; }
+
+  /* ---------- product preview ---------- */
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .preview-copy h2 { font-size: clamp(26px, 3.2vw, 36px); font-weight: 700; }
+  .preview-copy .kicker {
+    color: var(--accent);
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .preview-copy p { font-size: 17px; margin-top: 16px; }
+
+  .leadcard {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.75);
+  }
+  .leadcard .lc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--hairline);
+    background: rgba(255, 255, 255, 0.015);
+  }
+  .lc-head .title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    color: var(--heading);
+    font-size: 15px;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .lc-head .title .live {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px 1px var(--accent-glow);
+  }
+  .lc-head .stamp { font-size: 12.5px; color: var(--muted); }
+
+  .lc-table { width: 100%; border-collapse: collapse; }
+  .lc-table th {
+    text-align: left;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .lc-table td {
+    padding: 16px 22px;
+    font-size: 14.5px;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: middle;
+  }
+  .lc-table tr:last-child td { border-bottom: none; }
+  .lc-table tr { transition: background 0.14s ease; }
+  .lc-table tbody tr:hover { background: rgba(34, 224, 138, 0.035); }
+  .lc-table .biz {
+    color: var(--heading);
+    font-weight: 500;
+    font-family: "Space Grotesk", sans-serif;
+  }
+  .lc-table .loc, .lc-table .agent { color: var(--body); }
+  .lc-table .filed {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .lc-foot {
+    padding: 14px 22px;
+    font-size: 12.5px;
+    color: var(--muted);
+    border-top: 1px solid var(--hairline);
+    background: rgba(255, 255, 255, 0.015);
+    text-align: center;
+  }
+
+  /* ---------- pricing ---------- */
+  .pricing { text-align: center; }
+  .price-card {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid rgba(34, 224, 138, 0.22);
+    border-radius: 20px;
+    padding: 48px 40px;
+    box-shadow: 0 40px 90px -50px rgba(34, 224, 138, 0.4);
+  }
+  .price-card .amount {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    color: var(--heading);
+    font-size: 56px;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  /* Only the inline "/mo" suffix — scoped so it doesn't restyle the tooltip
+     trigger/bubble that also live inside .amount. */
+  .price-card .amount > span:not(.tip):not(.tip-bubble) {
+    font-size: 18px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .price-card .lead-line {
+    margin: 18px 0 0;
+    font-size: 17px;
+    color: var(--body);
+  }
+  .price-meta {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 20px 26px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .price-meta .pm { display: flex; align-items: center; gap: 7px; }
+  .price-meta svg { color: var(--accent); flex: none; }
+  .price-card .btn { margin-top: 30px; }
+  .price-card .pay-note {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ---------- final CTA band ---------- */
+  .cta-band { padding: 40px 0 100px; }
+  .cta-inner {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(34, 224, 138, 0.2);
+    border-radius: 24px;
+    background:
+      radial-gradient(120% 140% at 100% 0%, rgba(34, 224, 138, 0.12), transparent 55%),
+      var(--surface);
+    padding: 64px 56px;
+    text-align: center;
+  }
+  .cta-inner h2 {
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 700;
+    max-width: 20ch;
+    margin: 0 auto;
+  }
+  .cta-inner .btn { margin-top: 30px; }
+  .cta-rings {
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 320px; height: 320px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 40px 0;
+  }
+  .foot-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .foot-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--accent);
+  }
+  .foot-brand .wordmark {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    color: var(--heading);
+    font-size: 16px;
+    letter-spacing: -0.02em;
+  }
+  .foot-source { font-size: 13px; color: var(--muted); flex: 1 1 280px; }
+  .foot-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .foot-links a { transition: color 0.16s ease; }
+  .foot-links a:hover { color: var(--heading); }
+  .foot-links .copy { color: var(--muted); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 940px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 12px; }
+    .scope-wrap { order: -1; margin-bottom: 8px; }
+    .scope { max-width: 340px; }
+    .hero h1 { max-width: none; }
+    .cards, .steps, .report-grid { grid-template-columns: 1fr; }
+    .preview-grid { grid-template-columns: 1fr; gap: 36px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .menu-btn {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--hairline);
+      border-radius: 9px;
+      width: 42px; height: 42px;
+      color: var(--heading);
+      cursor: pointer;
+    }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    .hero { padding: 48px 0 64px; }
+    section.block { padding: 64px 0; }
+    .capture { flex-direction: column; }
+    .capture .btn { width: 100%; }
+    .cta-inner { padding: 44px 26px; }
+    .price-card { padding: 36px 24px; }
+    .foot-inner { flex-direction: column; align-items: flex-start; }
+    .lc-table .agent-col { display: none; }
+    /* Tighten table padding on phones so the 3 remaining columns fit without
+       clipping the "Filed" column at the card's right edge. */
+    .lc-table th, .lc-table td { padding: 13px 10px; font-size: 13.5px; }
+    .lc-table th:first-child, .lc-table td:first-child { padding-left: 18px; }
+    .lc-table th:last-child, .lc-table td:last-child { padding-right: 18px; }
+    .lc-table .filed { font-size: 12px; }
+    /* On phones the chip-row tooltip can overflow the viewport; cap its width
+       and let it grow downward from the trigger instead. */
+    .tip-bubble { max-width: min(240px, 78vw); }
+    .return-state .rs-actions .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="BizRadar home">
+      <span class="mark">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.6"/>
+          <circle cx="16" cy="16" r="7.5" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.6"/>
+          <path d="M16 16 L28 16 A12 12 0 0 0 25 8 Z" fill="currentColor" fill-opacity="0.18"/>
+          <circle cx="23" cy="9.5" r="2.6" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="wordmark">Biz<span style="color:#22E08A">Radar</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#report">Approach Report</a>
+      <a href="#preview">Sample list</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="#hero">Start free trial</a>
+    <button class="menu-btn" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Be the first call every new business gets.</h1>
+      <p class="subhead">Every morning, get a list of the businesses that registered in your area yesterday — name, address, and owner — before your competitors even know they exist.</p>
+
+      <!-- signup: email step -> turf step -> success. Wired in the script below. -->
+      <div class="signup" id="signup">
+        <form class="capture" id="email-form" novalidate>
+          <span class="capture-field">
+            <input type="email" id="email-input" name="email" inputmode="email" autocomplete="email" placeholder="you@agency.com" aria-label="Your work email" aria-describedby="tip-email" required />
+            <span class="tip" data-tip>
+              <button type="button" class="tip-btn" aria-label="Why we ask for your email" aria-describedby="tip-email" aria-expanded="false">i</button>
+              <span class="tip-bubble" id="tip-email" role="tooltip">We use this to send your daily list and set up your account. No spam — unsubscribe in one click.</span>
+            </span>
+          </span>
+          <!-- honeypot: hidden from humans, catches bots that fill every field -->
+          <input type="text" id="company-website" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="btn btn-primary" type="submit">Get started</button>
+        </form>
+
+        <!-- turf step (revealed after a valid email) -->
+        <div class="turf" id="turf-step" hidden>
+          <p class="turf-label">
+            Pick your turf — where do you sell?
+            <span class="tip" data-tip>
+              <button type="button" class="tip-btn" aria-label="What picking counties does" aria-describedby="tip-turf" aria-expanded="false">i</button>
+              <span class="tip-bubble" id="tip-turf" role="tooltip">You'll only get new businesses from the counties you pick here — nothing from anywhere else. Add or change counties anytime.</span>
+            </span>
+          </p>
+          <div class="chips" id="county-chips" role="group" aria-label="Select your counties"></div>
+          <p class="turf-note">More counties available at full signup.</p>
+          <div class="turf-actions">
+            <button class="btn btn-primary" type="button" id="confirm-turf">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="btn-label">Start my 7-day free trial</span>
+            </button>
+            <span class="turf-msg" id="turf-msg" role="alert"></span>
+          </div>
+        </div>
+
+        <!-- success state -->
+        <div class="signup-done" id="signup-done" hidden>
+          <span class="done-mark">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <div>
+            <strong class="done-title">You're in.</strong>
+            <span class="done-sub">Your first morning list arrives 7 AM tomorrow.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- checkout return: success (?subscribed=true). Unhidden by app.js. -->
+      <div class="return-state is-success" id="return-success" role="status" hidden>
+        <div class="rs-row">
+          <span class="rs-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <div>
+            <h2>You're in — welcome aboard.</h2>
+            <p>Your first list lands tomorrow morning at 7 AM. Check your inbox now for a confirmation from BizRadar.</p>
+            <div class="rs-actions">
+              <a class="btn btn-ghost" href="#how">See how it works</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- checkout return: cancelled / failed. Friendly retry, unhidden by app.js. -->
+      <div class="return-state is-cancel" id="return-cancel" role="status" hidden>
+        <div class="rs-row">
+          <span class="rs-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg>
+          </span>
+          <div>
+            <h2>No worries — nothing was charged.</h2>
+            <p>Looks like checkout didn't finish. Your 7-day free trial is still here whenever you're ready.</p>
+            <div class="rs-actions">
+              <button class="btn btn-primary" type="button" id="retry-signup">Pick up where I left off</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="trust" id="trust-line">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        Built on official state filing data. No scraping, no guesswork.
+      </p>
+    </div>
+
+    <!-- radar scope -->
+    <div class="scope-wrap" aria-hidden="true">
+      <svg class="scope" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" role="img">
+        <defs>
+          <radialGradient id="scopeFill" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#0F2A40" />
+            <stop offset="78%" stop-color="#0C2236" />
+            <stop offset="100%" stop-color="#0A1B2A" />
+          </radialGradient>
+          <radialGradient id="vign" cx="50%" cy="50%" r="50%">
+            <stop offset="60%" stop-color="rgba(0,0,0,0)" />
+            <stop offset="100%" stop-color="rgba(0,0,0,0.35)" />
+          </radialGradient>
+          <linearGradient id="sweepGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#22E08A" stop-opacity="0" />
+            <stop offset="100%" stop-color="#22E08A" stop-opacity="0.26" />
+          </linearGradient>
+          <radialGradient id="blipGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#22E08A" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#22E08A" stop-opacity="0" />
+          </radialGradient>
+          <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" />
+          </filter>
+        </defs>
+
+        <!-- scope body -->
+        <circle cx="250" cy="250" r="238" fill="url(#scopeFill)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5" />
+        <circle cx="250" cy="250" r="238" fill="url(#vign)" />
+
+        <!-- concentric rings -->
+        <g stroke="#22E08A" fill="none">
+          <circle cx="250" cy="250" r="190" stroke-opacity="0.16" stroke-width="1.2" />
+          <circle cx="250" cy="250" r="142" stroke-opacity="0.13" stroke-width="1.2" />
+          <circle cx="250" cy="250" r="94"  stroke-opacity="0.11" stroke-width="1.2" />
+          <circle cx="250" cy="250" r="46"  stroke-opacity="0.10" stroke-width="1.2" />
+        </g>
+
+        <!-- crosshair -->
+        <g stroke="#22E08A" stroke-opacity="0.14" stroke-width="1.2">
+          <line x1="250" y1="20" x2="250" y2="480" />
+          <line x1="20" y1="250" x2="480" y2="250" />
+        </g>
+        <!-- diagonal graticule -->
+        <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+          <line x1="83" y1="83" x2="417" y2="417" />
+          <line x1="417" y1="83" x2="83" y2="417" />
+        </g>
+
+        <!-- tick marks around outer ring -->
+        <g stroke="#22E08A" stroke-opacity="0.22" stroke-width="1.4">
+          <line x1="250" y1="20" x2="250" y2="32" />
+          <line x1="250" y1="468" x2="250" y2="480" />
+          <line x1="20" y1="250" x2="32" y2="250" />
+          <line x1="468" y1="250" x2="480" y2="250" />
+        </g>
+
+        <!-- sweep wedge (rotating) -->
+        <g class="sweep-group">
+          <path d="M250 250 L250 12 A238 238 0 0 1 462 130 Z" fill="url(#sweepGrad)" />
+          <line x1="250" y1="250" x2="250" y2="12" stroke="#22E08A" stroke-opacity="0.5" stroke-width="1.6" />
+        </g>
+
+        <!-- detected blip -->
+        <g class="blip" transform="translate(338,178)">
+          <circle r="34" fill="url(#blipGlow)" filter="url(#soft)" />
+          <circle class="blip-core" r="6.5" fill="#22E08A" />
+          <circle r="11" fill="none" stroke="#22E08A" stroke-opacity="0.45" stroke-width="1.3" />
+        </g>
+
+        <!-- center hub -->
+        <circle cx="250" cy="250" r="3.4" fill="#22E08A" fill-opacity="0.85" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHO IT'S FOR ================= -->
+<div class="strip">
+  <div class="wrap">
+    <p class="strip-label">Who it's for</p>
+    <div class="strip-row">
+      <span class="item">Insurance agents</span><span class="sep">·</span>
+      <span class="item">Bookkeepers &amp; accountants</span><span class="sep">·</span>
+      <span class="item">Business bankers</span><span class="sep">·</span>
+      <span class="item">Merchant services</span><span class="sep">·</span>
+      <span class="item">Commercial cleaners</span><span class="sep">·</span>
+      <span class="item">Web &amp; marketing agencies</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= VALUE PROPS ================= -->
+<section class="block" id="value">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Why it works</p>
+      <h2>Same-day filings, not last month's recycled list.</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3>Fresh every morning</h3>
+        <p>New LLCs and corporations, pulled straight from the state the day they file. Not last month's recycled list.</p>
+      </article>
+      <article class="card">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8h18M7 13h5"/></svg>
+        </div>
+        <h3>Real contact info</h3>
+        <p>Business name, mailing address, registered agent, and officers — enough to send a letter or knock on a door today.</p>
+      </article>
+      <article class="card">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        </div>
+        <h3>Your turf only</h3>
+        <p>Filter to the cities and counties you actually sell in. No noise, just your market.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">How it works</p>
+      <h2>From signup to your first call in three steps.</h2>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="num">1</div>
+        <h3>Tell us your turf</h3>
+        <p>Pick your counties and the business types you want.</p>
+      </article>
+      <article class="step">
+        <div class="num">2</div>
+        <h3>We watch the filings</h3>
+        <p>Every business day we pull the official new-registration feed and match it to your turf.</p>
+      </article>
+      <article class="step">
+        <div class="num">3</div>
+        <h3>You get the morning list</h3>
+        <p>A clean email lands at 7am with yesterday's new businesses. Start dialing.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPROACH REPORT ================= -->
+<section class="block" id="report">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="kicker">Approach Report</p>
+      <h2>Know the business before you dial.</h2>
+      <p>Before you call, BizRadar reads the business's reviews and hands you a brief: what they're praised for, what customers complain about, what they actually want — and a suggested opening line based on what their customers ask for.</p>
+    </div>
+    <div class="report-grid">
+      <article class="card reveal">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.3a2 2 0 0 0 2-1.7l1.4-9A2 2 0 0 0 19.7 9H14z"/><path d="M7 22V11"/></svg>
+        </div>
+        <h3>The good &amp; the bad</h3>
+        <p>The themes that show up again and again in their real reviews — what they're loved for, and where they keep slipping.</p>
+      </article>
+      <article class="card reveal" style="transition-delay: 0.06s;">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z" opacity="0"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+        <h3>What customers want</h3>
+        <p>The gap between what they're getting and what they're asking for — the exact opening you can sell into.</p>
+      </article>
+      <article class="card pitch reveal" style="transition-delay: 0.12s;">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-7-8-3z"/></svg>
+        </div>
+        <h3>Your opening</h3>
+        <p>A suggested opening line for this business, drawn from what its customers actually ask for.</p>
+      </article>
+      <article class="card reveal" style="transition-delay: 0.18s;">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.5 12.5 11 14l3.5-3.5"/></svg>
+        </div>
+        <h3>Fake-review filter</h3>
+        <p>Vague, retaliatory, and review-bombing noise gets discounted, so you act on real complaints and real signal only.</p>
+      </article>
+    </div>
+    <div class="report-actions reveal">
+      <a class="btn btn-primary btn-lg" href="sample-report.html" target="_blank" rel="noopener noreferrer">See a sample report</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCT PREVIEW ================= -->
+<section class="block" id="preview">
+  <div class="wrap preview-grid">
+    <div class="preview-copy">
+      <p class="kicker">Today's list</p>
+      <h2>This is what lands in your inbox.</h2>
+      <p>Yesterday's brand-new Florida businesses — matched to your turf, formatted to act on. Business name, owner, address, and filing date, ready to dial from.</p>
+    </div>
+
+    <div class="leadcard">
+      <div class="lc-head">
+        <span class="title"><span class="live"></span>Today's list — Florida</span>
+        <span class="stamp">Delivered 7:00 AM</span>
+      </div>
+      <table class="lc-table">
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Location</th>
+            <th>Filed</th>
+            <th class="agent-col">Registered agent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="biz">Wallace Management Partners LLC</td>
+            <td class="loc">Cape Coral, FL 33993</td>
+            <td class="filed">2 days ago</td>
+            <td class="agent agent-col">Emerose Wallace</td>
+          </tr>
+          <tr>
+            <td class="biz">Impacto Wash Services LLC</td>
+            <td class="loc">Miami, FL 33193</td>
+            <td class="filed">3 days ago</td>
+            <td class="agent agent-col">Wilber Hernandez Rojas</td>
+          </tr>
+          <tr>
+            <td class="biz">Gwandine Studio, Inc.</td>
+            <td class="loc">Jacksonville, FL 32209</td>
+            <td class="filed">2 days ago</td>
+            <td class="agent agent-col">Gwandine Thurmond</td>
+          </tr>
+          <tr>
+            <td class="biz">Fat Daddy &amp; Son Equine Ventures LLC</td>
+            <td class="loc">Boca Raton, FL 33434</td>
+            <td class="filed">3 days ago</td>
+            <td class="agent agent-col">Michael Altschuler</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="lc-foot">4 new businesses matched your turf this morning</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING TEASER ================= -->
+<section class="block pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Pricing</p>
+      <h2>One closed deal pays for the year.</h2>
+    </div>
+    <div class="price-card">
+      <div class="amount">$49<span>/mo</span>
+        <span class="tip tip-end" data-tip>
+          <button type="button" class="tip-btn" aria-label="What's included for $49 a month" aria-describedby="tip-price" aria-expanded="false">i</button>
+          <span class="tip-bubble" id="tip-price" role="tooltip">$49/mo after a free 7-day trial. Includes the daily morning list for your counties, owner and address details, and the pre-call Approach Report. No setup fee. Cancel anytime.</span>
+        </span>
+      </div>
+      <p class="lead-line">From <strong style="color:var(--heading);font-weight:600;">$49/mo</strong>. Less than an hour of billable time.</p>
+      <div class="price-meta">
+        <span class="pm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          7-day free trial
+        </span>
+        <span class="pm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Cancel anytime
+        </span>
+      </div>
+      <a class="btn btn-primary btn-lg" id="pricing-cta" data-checkout href="https://buy.polar.sh/polar_cl_L0W22LYNfGHGdxMthtKYB9ckAYuB7YtCbNANX4Mmqik">
+        <span class="spinner" aria-hidden="true"></span>
+        <span class="btn-label">Start your 7-day free trial</span>
+      </a>
+      <p class="pay-note">No charge today. Secure checkout by Polar. Cancel anytime in one click.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA BAND ================= -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-inner">
+      <svg class="cta-rings" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="98" stroke="#22E08A" stroke-opacity="0.18" stroke-width="1.2"/>
+        <circle cx="100" cy="100" r="70" stroke="#22E08A" stroke-opacity="0.14" stroke-width="1.2"/>
+        <circle cx="100" cy="100" r="42" stroke="#22E08A" stroke-opacity="0.10" stroke-width="1.2"/>
+        <circle cx="148" cy="56" r="5" fill="#22E08A" fill-opacity="0.7"/>
+      </svg>
+      <h2>Every new business in your market, the morning after they file.</h2>
+      <a class="btn btn-primary btn-lg" href="#hero">Start your 7-day free trial</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <svg viewBox="0 0 32 32" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.6"/>
+        <circle cx="16" cy="16" r="7.5" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.6"/>
+        <path d="M16 16 L28 16 A12 12 0 0 0 25 8 Z" fill="currentColor" fill-opacity="0.18"/>
+        <circle cx="23" cy="9.5" r="2.6" fill="currentColor"/>
+      </svg>
+      <span class="wordmark">Biz<span style="color:#22E08A">Radar</span></span>
+    </div>
+    <p class="foot-source">Data sourced from official public state business records.</p>
+    <div class="foot-links">
+      <span class="copy">© 2026</span>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="refunds.html">Refunds</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
